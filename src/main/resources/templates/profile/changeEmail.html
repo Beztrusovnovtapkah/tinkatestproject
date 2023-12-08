@@ -1,0 +1,5 @@
+<!-- changeEmailFragment.html -->
+<form method="post" th:action="@{/profile/changeEmail}" th:object="${user}">
+    <div>E-mail: <input type="email" name="email" placeholder="email" th:value="${user.email}"/></div>
+    <input type="submit" value="Change"/>
+</form>

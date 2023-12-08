@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Wrong message!</title>
+</head>
+<body>
+<div>This message has wrong format!</div>
+<div>Click <a th:href="@{/users/home}">here</a> to see main page.</div>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <div><input type="submit" value="Logout"/></div>
+    </form>
+</div>
+<button onclick="goBack()">Back</button>
+</body>
+</html>

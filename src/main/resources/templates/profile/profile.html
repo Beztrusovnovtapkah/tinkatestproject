@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html data-bs-theme="dark" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Ennorath Rating | Profile</title>
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header>
+<p th:text="${user.userName}"></p>
+<p th:text="${user.title}"></p>
+<p th:text="${user.timeCount}"></p>
+<p th:text="${user.elo}"></p>
+<table border="1">
+    <thead>
+    <tr>
+        <th></th>
+        <th>Случайно</th>
+        <th>Гондор</th>
+        <th>Рохан</th>
+        <th>Арнор</th>
+        <th>Лотлориэн</th>
+        <th>Имладрис</th>
+        <th>Гномы</th>
+        <th>Изенгард</th>
+        <th>Мордор</th>
+        <th>Мглистые горы</th>
+        <th>Ангмар</th>
+        <th>Харад</th>
+        <th>Всего</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <th>Победы</th>
+        <td th:text="${user.countWinRandom}"></td>
+        <td th:text="${user.countWinGondor}"></td>
+        <td th:text="${user.countWinRohan}"></td>
+        <td th:text="${user.countWinArnor}"></td>
+        <td th:text="${user.countWinLotlorien}"></td>
+        <td th:text="${user.countWinAImladris}"></td>
+        <td th:text="${user.countWinDwarves}"></td>
+        <td th:text="${user.countWinIsengard}"></td>
+        <td th:text="${user.countWinMordor}"></td>
+        <td th:text="${user.countWinGoblins}"></td>
+        <td th:text="${user.countWinAngmar}"></td>
+        <td th:text="${user.countWinHarad}"></td>
+        <td th:text="${allLose}"></td>
+    </tr>
+    <tr>
+        <th>Поражения</th>
+        <td th:text="${user.countLoseRandom}"></td>
+        <td th:text="${user.countLoseGondor}"></td>
+        <td th:text="${user.countLoseRohan}"></td>
+        <td th:text="${user.countLoseArnor}"></td>
+        <td th:text="${user.countLoseLotlorien}"></td>
+        <td th:text="${user.countLoseImladris}"></td>
+        <td th:text="${user.countLoseDwarves}"></td>
+        <td th:text="${user.countLoseIsengard}"></td>
+        <td th:text="${user.countLoseMordor}"></td>
+        <td th:text="${user.countLoseGoblins}"></td>
+        <td th:text="${user.countLoseAngmar}"></td>
+        <td th:text="${user.countLoseHarad}"></td>
+        <td th:text="${allWin}"></td>
+    </tr>
+    <tr>
+        <th>Количество игр</th>
+        <td th:text="${user.countGameRandom}"></td>
+        <td th:text="${user.countGameGondor}"></td>
+        <td th:text="${user.countGameRohan}"></td>
+        <td th:text="${user.countGameArnor}"></td>
+        <td th:text="${user.countGameLotlorien}"></td>
+        <td th:text="${user.countGameImladris}"></td>
+        <td th:text="${user.countGameDwarves}"></td>
+        <td th:text="${user.countGameIsengard}"></td>
+        <td th:text="${user.countGameMordor}"></td>
+        <td th:text="${user.countGameGoblins}"></td>
+        <td th:text="${user.countGameAngmar}"></td>
+        <td th:text="${user.countGameHarad}"></td>
+        <td th:text="${allCount}"></td>
+    </tr>
+    <tr>
+        <th>Винрейт</th>
+        <td th:text="@{${(user.countGameRandom != 0 ? (user.countWinRandom / user.countGameRandom) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameGondor != 0 ? (user.countWinGondor / user.countGameGondor) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameRohan != 0 ? (user.countWinRohan / user.countGameRohan) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameArnor != 0 ? (user.countWinArnor/ user.countGameArnor) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameLotlorien != 0 ? (user.countWinLotlorien / user.countGameLotlorien) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameImladris != 0 ? (user.countWinImladris / user.countGameImladris) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameDwarves != 0 ? (user.countWinDwarves / user.countGameDwarves) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameIsengard != 0 ? (user.countWinIsengard / user.countGameIsengard) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameMordor != 0 ? (user.countWinMordor / user.countGameMordor) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameGoblins != 0 ? (user.countWinGoblins / user.countGameGoblins) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameAngmar != 0 ? (user.countWinAngmar / user.countGameAngmar) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(user.countGameHarad != 0 ? (user.countWinHarad / user.countGameHarad) * 100 : 0)} + '%'}"></td>
+        <td th:text="@{${(allCount != 0 ? (allLose / allCount) * 100 : 0)} + '%'}"></td>
+    </tr>
+    </tbody>
+</table>
+<div>
+    <!-- Кнопка для открытия модального окна смены пароля -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+        Смена пароля
+    </button>
+</div>
+<div>
+    <!-- Кнопка для открытия модального окна смены email -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#changeEmailModal">
+        Смена email
+    </button>
+</div>
+<div>
+    <a th:href="@{/profile/deleteAccount(id=${user.id})}" onclick="return confirm('Вы уверены?')">Удалить аккаунт</a>
+</div>
+<div>
+    <form th:action="@{/logout}" method="post">
+        <div><input type="submit" value="Выйти с аккаунта!"/></div>
+    </form>
+</div>
+<div th:if="${role.equals('ADMIN')}">
+    <a th:href="@{/admin/adminPanel}">Admin Panel</a>
+</div>
+
+<!-- Модальное окно смены пароля -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Контент модального окна смены пароля -->
+            <!-- Здесь вы можете добавить форму для смены пароля -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Смена пароля</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Форма для смены пароля -->
+                <!-- Замените это на вашу собственную форму -->
+                <form th:action="@{/profile/changePassword}" method="post">
+                    <!-- Форма смены пароля -->
+                    <label for="password">Новый пароль:</label>
+                    <input type="password" id="password" name="password" required>
+                    <br>
+                    <input type="submit" value="Сменить пароль">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Модальное окно смены email -->
+<div class="modal fade" id="changeEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- Контент модального окна смены email -->
+            <!-- Здесь вы можете добавить форму для смены email -->
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel1">Смена email</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Форма для смены email -->
+                <!-- Замените это на вашу собственную форму -->
+                <form th:action="@{/profile/changeEmail}" method="post">
+                    <!-- Форма смены email -->
+                    <label for="email">Новый email:</label>
+                    <input type="email" id="email" name="email" required>
+                    <br>
+                    <input type="submit" value="Сменить email">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<h2>Последние реплеи</h2>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Игрок</th>
+        <th>Фракция</th>
+        <th>Союз</th>
+        <th>Цвет</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Используйте Thymeleaf для цикла по списку реплеев -->
+    <tr th:each="replay : ${latestReplays}">
+        <td th:text="${replay.id}"></td>
+        <td th:if="${user.userName.equals(replay.playerFirstNickname)}" th:text="${replay.playerFirstNickname}"></td>
+        <td th:if="${user.userName.equals(replay.playerSecondNickname)}" th:text="${replay.playerSecondNickname}"></td>
+
+        <!-- Фракция и союз первого игрока -->
+        <td th:if="${user.userName.equals(replay.playerFirstNickname)}" th:text="${replay.playerFirstArmy}"></td>
+        <td th:if="${user.userName.equals(replay.playerFirstNickname)}" th:text="${replay.playerFirstAlly}"></td>
+        <td th:if="${user.userName.equals(replay.playerFirstNickname)}" th:text="${replay.playerFirstColor}"></td>
+
+        <!-- Фракция и союз второго игрока -->
+        <td th:if="${user.userName.equals(replay.playerSecondNickname)}" th:text="${replay.playerSecondArmy}"></td>
+        <td th:if="${user.userName.equals(replay.playerSecondNickname)}" th:text="${replay.playerSecondAlly}"></td>
+        <td th:if="${user.userName.equals(replay.playerSecondNickname)}" th:text="${replay.playerSecondColor}"></td>
+
+        <!-- Добавьте ссылку на страницу реплея, передавая ID в URL -->
+        <td><a th:href="@{'/replays/replay/' + ${replay.id}}">Подробнее</a></td>
+    </tr>
+
+    </tbody>
+</table>
+<footer th:insert="blocks/footer :: footer"></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+</body>
+</html>
