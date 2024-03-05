@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Create Match</title>
+</head>
+<body>
+<h2>Create a Match</h2>
+<form th:object="${matchLobby}" th:action="@{/createMatch}" method="post">
+
+    <label for="player1">Player 1:</label>
+    <input type="text" th:field="*{player1}" required><br>
+
+    <label for="player2">Player 2:</label>
+    <input type="text" th:field="*{player2}" required><br>
+
+    <button type="submit">Create Match</button>
+</form>
+</body>
+</html>
